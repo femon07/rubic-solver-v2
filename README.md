@@ -1,25 +1,54 @@
-# Rubic Solver v2
+# React + TypeScript + Vite
 
-## プロジェクト概要
-Rubik's Cubeを自動で解くためのプログラムです。各面の状態を入力すると、最短手順を計算して提示します。現在は基本機能の実装段階であり、今後さらに精度と速度を高めていく予定です。
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## 開発環境
-- Node.js 18系
-- pnpm
-- TypeScript（予定）
+Currently, two official plugins are available:
 
-## 実行手順
-1. リポジトリをクローンした後、依存関係をインストールします。
-   ```bash
-   pnpm install
-   ```
-2. 開発サーバーを起動します。
-   ```bash
-   pnpm dev
-   ```
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## 将来のロードマップ
-- 解法アルゴリズムの改良
-- 3Dビジュアライザの追加
-- CLIツールの整備
-- Web版インターフェースの提供
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+
+```js
+export default tseslint.config({
+  extends: [
+    // Remove ...tseslint.configs.recommended and replace with this
+    ...tseslint.configs.recommendedTypeChecked,
+    // Alternatively, use this for stricter rules
+    ...tseslint.configs.strictTypeChecked,
+    // Optionally, add this for stylistic rules
+    ...tseslint.configs.stylisticTypeChecked,
+  ],
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
+```
+
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default tseslint.config({
+  plugins: {
+    // Add the react-x and react-dom plugins
+    'react-x': reactX,
+    'react-dom': reactDom,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended typescript rules
+    ...reactX.configs['recommended-typescript'].rules,
+    ...reactDom.configs.recommended.rules,
+  },
+})
+```
