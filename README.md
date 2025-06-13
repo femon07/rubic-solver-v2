@@ -55,7 +55,8 @@ export default tseslint.config({
 
 ## デプロイ
 
-このリポジトリは GitHub Pages で公開できます。`main` ブランチに変更をプッシュすると、自動で `dist/` ディレクトリがデプロイされます。
+このリポジトリは GitHub Pages で公開できます。`main` ブランチに変更をプッシュすると、ワークフローにより `dist/` ディレクトリが `gh-pages` ブランチへ自動でデプロイされます。
+リポジトリの Settings → Pages で Source を `gh-pages` ブランチに設定してください。
 
 公開されたページは `https://<ユーザー名>.github.io/rubic-solver-v2/` で確認できます。
 
