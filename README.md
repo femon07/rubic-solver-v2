@@ -59,3 +59,14 @@ export default tseslint.config({
 
 公開されたページは `https://<ユーザー名>.github.io/rubic-solver-v2/` で確認できます。
 
+
+## Cube API
+
+`Cube` クラスは `move()` メソッドでキューブを回転させます。回転記号を引数に渡してください。
+
+```ts
+const cube = new Cube()
+cube.move('U')
+```
+
+現在対応している回転は `U` のみです。`isSolved()` はすべての面がそろっているかを確認します。
